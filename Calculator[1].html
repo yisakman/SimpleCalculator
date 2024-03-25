@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+
+    <style>
+        body{
+    background-color: darkgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.all{
+    background-color: #ccc;
+    height: 800px;
+width: 400px;
+border-radius: 30px;
+box-shadow: 3px 3px 8px 20px black;
+
+}
+.input{
+    height: 250px;
+    width: 395px;
+    border-radius: 30px;
+    border: none;
+    font-size: 70px;
+    font-weight: bolder;
+    text-align: right;
+
+}
+button{
+    height: 105px;
+    width: 96px;
+   border-radius: 50%;
+   font-weight: bolder;
+   font-size: 40px;
+   border: none;
+   background-color: rgba(255, 255, 255, 1);
+}
+    </style>
+</head>
+<body>
+ 
+<div class="all">
+<input type="text" class="input" placeholder="0">
+<table>
+    <tr>
+        <td><button type="button"  onclick="clearAll('')">C</button></td>
+        <td><button type="button"  onclick="Letters('%')">%</button></td>
+        <td><button type="button"  onclick="clearSome('')">DEL</button></td>
+        <td><button type="button"  onclick="Letters('/')">/</button></td>
+    </tr>
+    <tr>
+        <td><button type="button"  onclick="Letters('1')">1</button></td>
+        <td><button type="button"  onclick="Letters('2')">2</button></td>
+        <td><button type="button"  onclick="Letters('3')">3</button></td>
+        <td><button type="button"  onclick="Letters('*')">*</button></td>
+    </tr>
+    <tr>
+        <td><button type="button"  onclick="Letters('4')">4</button></td>
+        <td><button type="button"  onclick="Letters('5')">5</button></td>
+        <td><button type="button"  onclick="Letters('6')">6</button></td>
+        <td><button type="button"  onclick="Letters('-')">-</button></td>
+    </tr>
+    <tr>
+        <td><button type="button"  onclick="Letters('7')">7</button></td>
+        <td><button type="button"  onclick="Letters('8')">8</button></td>
+        <td><button type="button"  onclick="Letters('9')">9</button></td>
+        <td><button type="button"  onclick="Letters('+')">+</button></td>
+    </tr>
+    <tr>
+        <td><button type="button"  onclick="Letters('0')">0</button></td>
+        <td><button type="button"  onclick="Letters('.')">.</button></td>
+        <td><button type="button"  onclick="calculate('=')" style=" 
+        position: absolute; margin-top:-52px ; width: 195px; border-radius: 50px;
+        font-size: 45px;
+        ">=</button></td>
+
+    </tr>
+</table>
+
+
+
+
+</div>
+
+
+
+
+    <script>
+        const important =document.querySelector('.input')
+
+function Letters(para){
+    important.value+=para;
+    important.scrollLeft=important.scrollWidth;
+}
+
+function clearAll(){
+    important.value = '';
+
+}
+
+function clearSome(){
+    important.value = important.value.slice(0,-1)
+
+}
+
+function calculate(){
+    try{
+        important.value = eval(important.value)
+    }
+    catch(error){
+        important.value  ='ERROR'
+    }
+ 
+}
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
